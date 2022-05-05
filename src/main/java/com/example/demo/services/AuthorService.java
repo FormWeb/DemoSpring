@@ -44,7 +44,7 @@ public class AuthorService {
         return "Author removed";
     }
 
-    public Author updateAuthor(Author author) {
+    public AuthorDTO updateAuthor(AuthorDTO author) {
         if (author.getId() != 0) {
             Author currentAuthor = authorRepository.findById(author.getId()).orElse(null);
             if (currentAuthor != null) {
@@ -54,7 +54,7 @@ public class AuthorService {
                 if (author.getLastName() != null) {
                     currentAuthor.setLastName(author.getLastName());
                 }
-                return authorRepository.save(currentAuthor);
+                return authorMapper.toDto(authorRepository.save(currentAuthor));
             }
             else {
                 return null;

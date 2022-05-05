@@ -36,7 +36,7 @@ public class AuthorController {
     }
 
     @PutMapping
-    public Author updateAuthor(@RequestBody Author author) {
+    public AuthorDTO updateAuthor(@RequestBody AuthorDTO author) {
         return authorService.updateAuthor(author);
     }
 }
